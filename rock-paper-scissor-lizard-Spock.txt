@@ -1,0 +1,100 @@
+import random                                                 #importing random module to use randrange.
+
+def name_to_number(name):
+    
+    """ assigns a number to name(string) 
+    which will later be used to calculate results"""
+
+    x = 5
+    if name == "rock":
+        x = 0
+        return x
+    
+    elif name == "Spock":
+        x = 1
+        return x
+    
+    elif name == "paper":
+        x = 2
+        return x
+    
+    elif name == "lizard":
+        x = 3
+        return x
+    
+    elif name == "scissors":
+        x = 4
+        return x
+    
+    else:
+        print "Error in program above line 24"
+
+
+
+def number_to_name(number):
+    
+    """ assigns a name to the number randomly 
+        chosen by randrange() as computer's selection"""
+    
+    name = ""                                                 #initiate an empty variable name
+    
+    if number == 0:
+        name = "rock"
+        return name
+    
+    elif number == 1:
+        name = "Spock"
+        return name
+    
+    elif number == 2:
+        name = "paper"
+        return name
+    
+    elif number == 3:
+        name = "lizard"
+        return name
+    
+    elif number == 4:
+        name = "scissors"
+        return name
+    
+    else:
+        print "Error in program above line 49"
+
+
+def rpsls(player_choice): 
+    
+    """ computes the results by matching it with the 
+        modular arithmetic algorithm """
+
+    print "Player chooses " + player_choice                 #prints players' choice
+    
+    player_number = name_to_number(player_choice)           #assigns a number to players' choice
+    
+    comp_number = random.randrange(0,5)                     #generates a random number for computers' choice
+    
+    comp_choice = str(number_to_name(comp_number))          #assigns a name to comp_number
+    
+    print "Computer chooses " + comp_choice
+    
+    winner = (comp_number-player_number)%5                  # modular arithmetic algorithm
+    
+    if winner == 1 or winner == 2:
+        print "Computer wins!"
+        
+    elif winner == 3 or winner == 4:
+        print "Player wins!"
+    
+    elif winner == 0:
+        print "Player and computer tie!"
+    
+    else:
+        "Error in program above line 78"
+    
+    print ""                                                #leaving a line after every game
+
+rpsls("rock")
+rpsls("Spock")
+rpsls("paper")
+rpsls("lizard")
+rpsls("scissors")
