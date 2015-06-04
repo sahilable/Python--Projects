@@ -1,0 +1,20 @@
+def tax(bill):
+    """Adds 8% tax to a restaurant bill."""
+    bill *= 1.08
+    tax= bill-cost
+    print "Bill With tax: %f (tax= %f)" % (bill,tax)
+    return bill
+
+
+def tip(bill):
+    """Adds 15% tip to a restaurant bill."""
+    bill *= 1.15
+    tip= bill-cost
+    print "Bill With tip: %f (tax= %f)" % (bill,tip)
+    return bill
+
+cost=int(raw_input("enter"))    
+meal_cost = cost
+meal_with_tax = tax(meal_cost)
+meal_with_tip = tip(meal_with_tax)
+print "Total amount = %s" % meal_with_tip
