@@ -1,0 +1,113 @@
+# This code will only run on http://www.codeskulptor.org/ as it uses libraries from the editor
+
+
+# input will come from buttons and an input field
+# all output for the game will be printed in the console
+
+import simplegui
+import math
+import random
+
+num_range=100
+a=True
+count=7
+# helper function to start and restart the game
+def new_game():
+    print "New game. Range is from 0 to 100"
+    print "Number of remaining guesses is 7"
+    print ""
+    # initializing global variables
+    f.start
+
+    
+
+
+# define event handlers for control panel
+def range100():
+    # button that changes the range to [0,100) and starts a new game 
+    global count
+    count=7
+    global a
+    a=True
+    global num_range
+    num_range = random.randrange(0,100)
+    print ""
+    print "New game. Range is from 0 to 100"
+    print "Number of remaining guesses is 7"
+   
+    
+
+def range1000():
+    # button that changes the range to [0,1000) and starts a new game     
+    global count
+    count=10
+    global a
+    a=False
+    global num_range
+    num_range=random.randrange(0,1000)
+    print ""
+    print "New game. Range is from 0 to 1000"
+    print "Number of remaining guesses is 10"
+    
+  
+    
+def input_guess(guess):
+    # main game logic
+    guess=int(guess)
+    global num_range 
+    global count
+    if a==True:
+            
+            print "Guess was ",guess
+            count-=1
+            print "Number of remaning guesses is ", count
+            if guess>(num_range):
+                    print"Lower"
+                    
+            elif guess< num_range:
+                    print"Higher"
+                 
+            elif guess== num_range:
+                    print "Correct"
+                    print "You win"
+                    new_game()
+            
+            print ""
+            if count==0:
+                print "You ran out of guesses. You Lose"
+                new_game()
+    		print ""
+            
+    elif a==False:
+            print "Guess was ",guess
+            count-=1
+            print "Number of remaning guesses is ", count
+            
+            if guess> num_range:
+                    print"Lower !"
+            elif guess< num_range:
+                    print"Higher !"
+            elif guess== num_range:
+                    print "Correct!"
+                    new_game()
+           
+            print ""
+            
+            if count==0:
+                print "You ran out of guesses. You Lose"
+                new_game()
+            print ""
+
+    
+
+    
+# creating frame
+f= simplegui.create_frame("Guess the Number", 200, 200)
+
+# registering event handlers for control elements
+f.add_button("Range is [0-100)", range100, 200)
+f.add_button("Range is [0-1000)", range1000, 200)
+f.add_input("Enter a guess", input_guess, 200)
+
+
+new_game()
