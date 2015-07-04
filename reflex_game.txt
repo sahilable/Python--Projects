@@ -1,4 +1,4 @@
-# template for "Stopwatch: The Game"
+# This code will only run on http://www.codeskulptor.org/ as it uses libraries from the editor
 
 import simplegui
 
